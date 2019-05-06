@@ -8,7 +8,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'morhetz/gruvbox'
 call vundle#end()
 
@@ -38,9 +37,7 @@ map <C-n> : NERDTreeToggle<CR>
 nmap <F8> : TagbarToggle<CR>
 
 syntax on
+set background=dark
+colorscheme gruvbox
 
 set encoding=utf-8
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
