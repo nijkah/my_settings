@@ -11,6 +11,7 @@ sudo apt install wget curl tmux zsh -y
 # --- Shell
 # install powerline
 pip install powerline-status
+sudo apt-get install powerline fonts-powerline
 
 # If you want to use consolas in Windows
 # git clone https://github.com/Znuff/consolas-powerline
@@ -22,7 +23,6 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-cp .zshrc ~/.zshrc
 
 
 
