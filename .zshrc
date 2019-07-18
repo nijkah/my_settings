@@ -57,7 +57,7 @@ export LANG=en_US.UTF-8
 
 ################################
 # Conda Path
-export CONDA_HOME=$HOME/conda
+export CONDA_HOME=$HOME/anaconda3
 export PATH=$CONDA_HOME/bin:$PATH
 
 # >>> conda initialize >>>
@@ -79,13 +79,5 @@ unset __conda_setup
 # CUDA Path
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:LD_LIBRARY_PATH
-
-################################
-# User Custom Path
-alias top=htop
-alias vim=nvim
-
-export server1=166.104.110.143
-export server2=166.104.110.144
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
