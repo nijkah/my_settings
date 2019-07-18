@@ -1,5 +1,3 @@
-# Maydev ZSH Settings
-# github.com/MaybeS/settings.git
 ################################
 # Default ZSH
 export ZSH=$HOME/.oh-my-zsh
@@ -7,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 setopt PROMPT_SUBST
-plugins=(git zsh-autosuggestions fast-syntax-highlighting)
+#plugins=(git zsh-autosuggestions fast-syntax-highlighting)
+plugins=(git zsh-autosuggestions)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 source $ZSH/oh-my-zsh.sh
@@ -75,9 +74,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-################################
-# CUDA Path
-export CUDA_HOME=/usr/local/cuda
-export PATH=$CUDA_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
-
+cd ~
