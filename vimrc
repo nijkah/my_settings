@@ -1,12 +1,12 @@
 set nocompatible
 
-
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'iCyMind/NeoSolarized'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 
