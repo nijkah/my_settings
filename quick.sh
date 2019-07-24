@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 
 # change apt mirror to kakao
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
@@ -6,6 +7,8 @@ sed -e 's/\(us.\)\?archive.ubuntu.com/mirror.kakao.com/g' -e 's/security.ubuntu.
 sudo mv sources.list /etc/apt
 sudo apt update
 
+=======
+>>>>>>> 9662a763f4f52eedf32a9cc05b44f37c73cf4d77
 # install default packages
 sudo apt install wget curl tmux zsh -y
 
@@ -21,14 +24,20 @@ sudo apt-get install powerline fonts-powerline
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # install omz plugins
-git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
+#git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+<<<<<<< HEAD
 
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt-get install neovim -y
 
+=======
+chsh -s 'which zsh'
+cp .zshrc ~/.zshrc
+>>>>>>> 9662a763f4f52eedf32a9cc05b44f37c73cf4d77
 
 # for my nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
