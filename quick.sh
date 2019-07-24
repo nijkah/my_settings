@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # change apt mirror to kakao
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
 sed -e 's/\(us.\)\?archive.ubuntu.com/mirror.kakao.com/g' -e 's/security.ubuntu.com/mirror.kakao.com/g' < /etc/apt/sources.list.org > sources.list
@@ -24,10 +25,16 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/c
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt-get install neovim -y
 
 
-# for my vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp vimrc ~/.vimrc
+# for my nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c 'PluginInstall' -c 'qa!'
+cp vimrc ~/.config/nvim/init.vim
+
+nvim -c 'PlugInstall' -c 'qa!'
+echo alias vi='nvim' >> ~/.zshrc

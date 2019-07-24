@@ -1,13 +1,14 @@
 set nocompatible
 
+set rtp+=~/.vim/bundle/Vundle.vim
 
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
-Plug 'iCyMind/NeoSolarized'
-call plug#end()
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'morhetz/gruvbox'
+call vundle#end()
 
 
 set showmode
@@ -24,8 +25,6 @@ set backspace=indent,eol,start
 set autoindent
 set copyindent
 set number
-set ignorecase
-set relativenumber
 set cc=80
 
 set hlsearch
@@ -37,8 +36,7 @@ map <C-n> : NERDTreeToggle<CR>
 nmap <F8> : TagbarToggle<CR>
 
 syntax on
-set termguicolors
-colorscheme NeoSolarized
 set background=dark
+colorscheme gruvbox
 
 set encoding=utf-8
