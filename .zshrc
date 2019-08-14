@@ -56,7 +56,7 @@ export LANG=en_US.UTF-8
 
 ################################
 # Conda Path
-export CONDA_HOME=$HOME/anaconda3
+export CONDA_HOME=$HOME/miniconda3
 export PATH=$CONDA_HOME/bin:$PATH
 
 # >>> conda initialize >>>
