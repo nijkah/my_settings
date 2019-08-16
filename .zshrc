@@ -31,47 +31,6 @@ prompt_context() {
   fi
 }
 
-# Display Virtual Environment
-prompt_virtualenv() {
-  local env='base';
 
-  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
-    env="$CONDA_DEFAULT_ENV"
-  elif [[ -n "$VIRTUAL_ENV" ]]; then
-    env="$VIRTUAL_ENV"
-  fi
 
-  if [[ -n $env ]]; then
-    prompt_segment white $PRIMARY_FG
-    print -Pn "\xf0\x9f\x90\x8d $(basename $env)"
-  fi
-}
-
-################################
-# Default Settings
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-################################
-# Conda Path
-export CONDA_HOME=$HOME/miniconda3
-export PATH=$CONDA_HOME/bin:$PATH
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$CONDA_HOME/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]; then
-        . "$CONDA_HOME/etc/profile.d/conda.sh"
-    else
-        export PATH="$CONDA_HOME/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-cd ~
+alias vi=nvim

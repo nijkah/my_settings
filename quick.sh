@@ -4,8 +4,8 @@
 sudo apt update
 
 # install default packages
-sudo apt install build-essential git wget curl tmux zsh -y
-# snap install tmux --classic
+sudo apt install build-essential wget curl zsh -y
+ snap install tmux --classic
 
 # --- Shell
 # install powerline
@@ -21,7 +21,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # install omz plugins
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
 
 sudo add-apt-repository ppa:neovim-ppa/stable
