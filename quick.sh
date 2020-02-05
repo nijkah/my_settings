@@ -7,6 +7,13 @@ sudo apt install build-essential pkg-config wget curl git zsh -y
 sudo apt-get install tmux
 sudo apt-get install python3 python3-pip
 
+sudo apt install locales -y
+sudo locale-gen en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+#export LC_ALL=C.UTF-8
+#export LANG=C.UTF-8
+
 # --- Shell
 # install powerline
 pip3 install powerline-status
