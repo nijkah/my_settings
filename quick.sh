@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# change apt mirror to kakao
 sudo apt update
 
 # install default packages
-sudo apt install build-essential wget curl zsh -y
- snap install tmux --classic
+sudo apt install build-essential pkg-config wget curl git zsh -y
+sudo apt-get install tmux
+sudo apt-get install python3 python3-pip
 
 # --- Shell
 # install powerline
-pip install powerline-status
+pip3 install powerline-status
 sudo apt-get install powerline fonts-powerline
 
 # If you want to use consolas in Windows
@@ -21,22 +21,19 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # install omz plugins
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-
-
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim -y
-
-chsh -s $(which zsh)
+#chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+chsh -s `which zsh`
 cp .zshrc ~/.zshrc
+
+
+sudo apt install neovim -y
+
 
 # for my nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 cp vimrc ~/.config/nvim/init.vim
 
 nvim -c 'PlugInstall' -c 'qa!'
-echo alias vi='nvim' >> ~/.zshrc

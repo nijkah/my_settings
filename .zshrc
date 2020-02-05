@@ -32,5 +32,4 @@ prompt_context() {
 }
 
 
-
-alias vi=nvim
+alias vi='nvim'
