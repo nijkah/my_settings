@@ -8,11 +8,9 @@ sudo apt-get install tmux
 sudo apt-get install python3 python3-pip
 
 sudo apt install locales -y
-sudo locale-gen en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-#export LC_ALL=C.UTF-8
-#export LANG=C.UTF-8
+#sudo locale-gen en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 # --- Shell
 # install powerline
@@ -32,9 +30,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 chsh -s `which zsh`
 cp .zshrc ~/.zshrc
 
-
 sudo apt install neovim -y
-
 
 # for my nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -44,3 +40,5 @@ mkdir -p ~/.config/nvim
 cp vimrc ~/.config/nvim/init.vim
 
 nvim -c 'PlugInstall' -c 'qa!'
+
+cp .condarc ~/.condarc

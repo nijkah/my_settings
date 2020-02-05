@@ -1,12 +1,13 @@
 ################################
 # Default ZSH
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 
 setopt PROMPT_SUBST
-#plugins=(git zsh-autosuggestions fast-syntax-highlighting)
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions fast-syntax-highlighting)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 source $ZSH/oh-my-zsh.sh
@@ -31,5 +32,20 @@ prompt_context() {
   fi
 }
 
+# Display Virtual Environment
+prompt_virtualenv() {
+  local env='base';
+
+  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+    env="$CONDA_DEFAULT_ENV"
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    env="$VIRTUAL_ENV"
+  fi
+
+  if [[ -n $env ]]; then
+    prompt_segment white $PRIMARY_FG
+    print -Pn "\xf0\x9f\x90\x8d %F{blue}$(basename $env)"
+  fi
+}
 
 alias vi='nvim'
