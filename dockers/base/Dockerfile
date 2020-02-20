@@ -14,7 +14,6 @@ RUN apt-get update
 # install default packages
 RUN apt-get install -qq -y build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev
 RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip htop pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev
-
 RUN apt-get update
 RUN apt-get -qq -y install python3 python3-pip
 
@@ -33,6 +32,7 @@ RUN cd /usr/src \
  && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
  && python3 get-pip.py \
  && rm get-pip.py \
+ && pip install numpy
 
 RUN wget https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip \
   && unzip ${OPENCV_VERSION}.zip \
@@ -66,33 +66,30 @@ RUN ln -s \
   /usr/local/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
   /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
-RUN pip install torch===1.4.0 torchvision===0.5.0 -f https://download.pytorch.org/whl/torch_stable.html
-RUN pip install scipy scikit-image pillow cmake yacs cython matplotlib tqdm jupyter lxml fastkml visdom geojson geopandas shapely
-
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" \ 
  && sed -i "s/robbyrussell/ys/g" ~/.zshrc \
  && chsh -s /usr/bin/zsh 
 
 RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
 
-CMD ["zsh"]
-
 
 # --- Shell
-# install powerline
-RUN pip3 install powerline-status -y
-
-# If you want to use consolas in Windows
-# git clone https://github.com/Znuff/consolas-powerline
 
 # install omz plugins
 RUN git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+RUN chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-RUN sudo apt install neovim -y
+RUN apt-get install neovim -y
 
 # for my nvim
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/.zshrc -o ~/.zshrc
+RUN mkdir -p ~/.config/nvim
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/vimrc -o ~/.config/nvim/init.vim
+RUN nvim -c 'PlugInstall' -c 'qa!'
+
+RUN echo 'alias vi="nvim"' >> ~/.zshrc
+CMD ["zsh"]

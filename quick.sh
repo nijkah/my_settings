@@ -12,11 +12,6 @@ sudo apt install locales -y
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# --- Shell
-# install powerline
-pip3 install powerline-status
-sudo apt-get install powerline fonts-powerline
-
 # If you want to use consolas in Windows
 # git clone https://github.com/Znuff/consolas-powerline
 
@@ -26,7 +21,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # install omz plugins
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 chsh -s `which zsh`
 cp .zshrc ~/.zshrc
 

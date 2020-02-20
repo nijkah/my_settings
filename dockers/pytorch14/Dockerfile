@@ -16,7 +16,7 @@ RUN apt-get install -qq -y build-essential checkinstall libreadline-gplv2-dev li
 RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev
 
 RUN apt-get update
-RUN apt-get install --q -y 
+RUN apt-get install -qq -y libffi-dev libssl-dev
 RUN apt-get -qq -y install python3 python3-pip
 
 # Set Locale
@@ -78,28 +78,24 @@ RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
 
 RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
 
-CMD ["zsh"]
-
 
 # --- Shell
-# install powerline
-RUN pip3 install powerline-status -y
-
-# If you want to use consolas in Windows
-# git clone https://github.com/Znuff/consolas-powerline
-
-# install oh-my-zsh
-RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # install omz plugins
 RUN git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-#chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-RUN chsh -s `which zsh`
+RUN chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-RUN sudo apt install neovim -y
+RUN apt-get install neovim -y
 
 # for my nvim
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/.zshrc -o ~/.zshrc
+RUN mkdir -p ~/.config/nvim
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/vimrc -o ~/.config/nvim/init.vim
+RUN nvim -c 'PlugInstall' -c 'qa!'
+
+RUN echo 'alias vi="nvim"' >> ~/.zshrc
+CMD ["zsh"]
