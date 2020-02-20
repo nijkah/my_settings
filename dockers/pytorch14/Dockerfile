@@ -13,10 +13,10 @@ RUN apt-get update
 
 # install default packages
 RUN apt-get install -qq -y build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev
-RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev
+RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip htop pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev
 
 RUN apt-get update
-RUN apt-get install -qq -y libffi-dev libssl-dev
+RUN apt-get install -qq -y libffi-dev libssl-dev openssh-server
 RUN apt-get -qq -y install python3 python3-pip
 
 # Set Locale
@@ -69,9 +69,8 @@ RUN ln -s \
   /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
 RUN pip install torch===1.4.0 torchvision===0.5.0 -f https://download.pytorch.org/whl/torch_stable.html
-RUN pip install scipy scikit-image pillow cmake yacs cython matplotlib tqdm jupyter lxml fastkml visdom geojson geopandas shapely
+RUN pip install scipy scikit-image pillow yacs cython matplotlib tqdm jupyter lxml fastkml visdom geojson geopandas shapely
 
-RUN apt-get install -y htop tmux zsh vim git openssh-server
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" \ 
  && sed -i "s/robbyrussell/ys/g" ~/.zshrc \
  && chsh -s /usr/bin/zsh 
