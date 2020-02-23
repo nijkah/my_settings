@@ -5,7 +5,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
-Plug 'iCyMind/NeoSolarized'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
@@ -38,7 +37,7 @@ nmap <F8> : TagbarToggle<CR>
 
 syntax on
 set termguicolors
-colorscheme NeoSolarized
+colorscheme gruvbox
 set background=dark
 
 set encoding=utf-8
