@@ -32,20 +32,4 @@ prompt_context() {
   fi
 }
 
-# Display Virtual Environment
-prompt_virtualenv() {
-  local env='base';
-
-  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
-    env="$CONDA_DEFAULT_ENV"
-  elif [[ -n "$VIRTUAL_ENV" ]]; then
-    env="$VIRTUAL_ENV"
-  fi
-
-  if [[ -n $env ]]; then
-    prompt_segment white $PRIMARY_FG
-    print -Pn "\xf0\x9f\x90\x8d %F{blue}$(basename $env)"
-  fi
-}
-
 alias vi='nvim'
