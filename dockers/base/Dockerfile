@@ -13,12 +13,12 @@ RUN apt-get update
 
 # install default packages
 RUN apt-get install -qq -y build-essential checkinstall libreadline-gplv2-dev \
-  libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev libbz2-dev
+  libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev libbz2-dev 
 RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip htop \
   pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev openssh-server
 
 RUN apt-get update
-RUN apt-get -qq -y install python3 python3-pip
+RUN apt-get install -qq -y libffi-dev libssl-dev libsqlite3-dev
 
 # Set Locale
 RUN apt install locales -y
@@ -87,7 +87,7 @@ RUN apt-get install neovim -y
 
 # for my nvim
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/.zshrc -o ~/.zshrc
 RUN mkdir -p ~/.config/nvim
