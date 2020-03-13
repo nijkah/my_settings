@@ -12,7 +12,7 @@ ENV OPENCV_VERSION="4.0.1"
 RUN apt-get update
 
 # install default packages
-RUN apt-get install -qq -y build-essential checkinstall libreadline-gplv2-dev \
+RUN apt-get install -qq -y build-essential apt-utils checkinstall libreadline-gplv2-dev \
   libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev libbz2-dev 
 RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip htop \
   pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev openssh-server
