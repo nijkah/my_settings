@@ -1,3 +1,5 @@
+SUDOPREFIX=$([ $EUID -eq 0 ] && echo "" || echo "sudo")
+
 # install oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
