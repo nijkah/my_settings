@@ -33,3 +33,4 @@ prompt_context() {
 }
 
 alias vi='nvim'
+alias tmux='tmux -2'
