@@ -17,6 +17,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 cp vimrc ~/.vimrc
 mkdir -p ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
+cp .tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
 
