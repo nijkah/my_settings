@@ -1,9 +1,9 @@
-cp .zshrc ~/.zshrc
+cp configs/zshrc ~/.zshrc
 
 mkdir -p ~/.config/nvim
-cp vimrc ~/.vimrc
+cp configs/vimrc ~/.vimrc
 ln -s ~/.vimrc ~/.config/nvim/init.vim
-cp .tmux.conf ~/.tmux.conf
+cp configs/tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
 

@@ -1,15 +1,11 @@
 #!/bin/bash
 SUDOPREFIX=$([ $EUID -eq 0 ] && echo "" || echo "sudo")
 
-$SUDOPREFIX apt update
+$SUDOPREFIX apt update -y
 
 # install default packages
 $SUDOPREFIX apt install build-essential apt-utils pkg-config wget curl git zsh -y
-$SUDOPREFIX apt-get install tmux
-$SUDOPREFIX apt-get install python3 python3-pip
-
-sudo apt install locales -y
-#sudo locale-gen en_US.UTF-8
+$SUDOPREFIX apt install tmux python3 python3-pip locales -y
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -23,7 +19,7 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/c
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 chsh -s `which zsh`
-cp .zshrc ~/.zshrc
+cp configs/zshrc ~/.zshrc
 
 $SUDOPREFIX apt install neovim -y
 
@@ -31,9 +27,9 @@ $SUDOPREFIX apt install neovim -y
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-cp vimrc ~/.vimrc
+cp configs/vimrc ~/.vimrc
 mkdir -p ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
-cp .tmux.conf ~/.tmux.conf
+cp configs/tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
