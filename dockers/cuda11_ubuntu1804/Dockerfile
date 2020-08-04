@@ -88,8 +88,8 @@ RUN apt-get install neovim -y
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-RUN sed -i -e "$aalias vi='nvim'" ~/.zshrc
-RUN sed -i -e "$aalias vim='nvim'" ~/.zshrc
+RUN sed -i -e "$a alias vi='nvim'" ~/.zshrc
+RUN sed -i -e "$a alias vim='nvim'" ~/.zshrc
 
 RUN pip3 install torch==1.6.0 torchvision
 
