@@ -13,7 +13,7 @@ RUN apt-get update
 
 # install default packages
 RUN apt-get install -qq -y build-essential apt-utils checkinstall libreadline-gplv2-dev \
-  libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev libbz2-dev 
+  libncursesw5-dev libc6-dev libswscale-dev libtbb2 libtbb-dev libbz2-dev
 RUN apt-get install -qq -y wget curl git zsh tmux tar cmake make unzip htop \
   pkg-config libjpeg-dev libtiff-dev libpng-dev libavformat-dev openssh-server
 
@@ -88,9 +88,22 @@ RUN apt-get install neovim -y
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-RUN sed -i -e "$a alias vi='nvim'" ~/.zshrc
-RUN sed -i -e "$a alias vim='nvim'" ~/.zshrc
+RUN sed -i -e "$ a alias vi='nvim'" ~/.zshrc
+RUN sed -i -e "$ a alias vim='nvim'" ~/.zshrc
 
-RUN pip3 install torch==1.6.0 torchvision
+# --- PyTorch
+RUN pip3 install ninja pyyaml mkl mkl-include
+#RUN git clone --recursive https://github.com/pytorch/pytorch /root/home/pytorch
+#WORKDIR "/root/home/pytorch/"
+## if you are updating an existing checkout
+#RUN git submodule sync
+#RUN git submodule update --init --recursive
+#RUN python3 /root/home/pytorch/setup.py install
+##RUN python3 setup.py install
+#
+#RUN git clone https://github.com/pytorch/vision /root/home/vision
+#RUN python3 /root/home/vision/setup.py install
+#
+#RUN pip3 install -y tensorboard sklearn
 
 CMD ["zsh"]
