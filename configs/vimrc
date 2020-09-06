@@ -3,8 +3,15 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-scripts/Conque-Shell'
+Plug 'tpope/vim-surrond'
+Plug 'scrooloose/syntastic'
+Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe'
 Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
@@ -12,13 +19,13 @@ call plug#end()
 
 set showmode
 set nowrap
-set tabstop=4
 set textwidth=120
-set smarttab
 set tags=tags
 set softtabstop=4
 set expandtab
+set smarttab
 set shiftwidth=4
+set tabstop=4
 set shiftround
 set backspace=indent,eol,start
 set autoindent
@@ -27,6 +34,9 @@ set number
 set ignorecase
 set relativenumber
 set cc=80
+
+set ai "Auto indent
+set si "Smart indent
 
 set hlsearch
 set laststatus=2  
@@ -40,5 +50,7 @@ syntax on
 set termguicolors
 colorscheme gruvbox
 set background=dark
+
+
 
 set encoding=utf-8
