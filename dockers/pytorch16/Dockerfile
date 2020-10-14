@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-devel
+FROM pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel
 MAINTAINER Hakjin Lee <nijkah@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -53,9 +53,9 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
            .. \
   && make -j 32 \
   && make install
-RUN ln -s \
-  /usr/local/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
-  /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
+#RUN ln -s \
+#  /usr/local/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
+#  /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
 RUN pip install scipy scikit-image pillow yacs cython matplotlib tqdm jupyter lxml shapely
 
@@ -65,7 +65,6 @@ RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
 
 # This can be dangerous
 # RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
-
 
 # --- Shell
 

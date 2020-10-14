@@ -73,7 +73,8 @@ RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
  && sed -i "s/robbyrussell/ys/g" ~/.zshrc \
  && chsh -s /usr/bin/zsh 
 
-RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
+# this can be dangerous
+#RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
 
 
 # --- Shell
@@ -89,9 +90,9 @@ RUN apt-get install neovim -y
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/.zshrc -o ~/.zshrc
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/configs/zshrc -o ~/.zshrc
 RUN mkdir -p ~/.config/nvim
-RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/vimrc -o ~/.config/nvim/init.vim
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/configs/vimrc -o ~/.config/nvim/init.vim
 RUN nvim -c 'PlugInstall' -c 'qa!'
 
 CMD ["zsh"]

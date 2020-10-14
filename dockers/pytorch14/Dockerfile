@@ -70,13 +70,14 @@ RUN ln -s \
   /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
 RUN pip install torch===1.4.0 torchvision===0.5.0 -f https://download.pytorch.org/whl/torch_stable.html
-RUN pip install scipy scikit-image pillow yacs cython matplotlib tqdm jupyter lxml fastkml visdom geojson geopandas shapely
+RUN pip install scipy scikit-image pillow yacs cython matplotlib tqdm jupyter lxml shapely
 
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" \ 
  && sed -i "s/robbyrussell/ys/g" ~/.zshrc \
  && chsh -s /usr/bin/zsh 
 
-RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
+# This can be dangerous
+#RUN sed -i "s/PermitRootLogin/PermitRootLogin yes #/g" /etc/ssh/sshd_config
 
 
 # --- Shell
@@ -92,9 +93,9 @@ RUN apt-get install neovim -y
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/.zshrc -o ~/.zshrc
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/configs/zshrc -o ~/.zshrc
 RUN mkdir -p ~/.config/nvim
-RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/vimrc -o ~/.config/nvim/init.vim
+RUN curl https://raw.githubusercontent.com/nijkah/my_settings/master/configs/vimrc -o ~/.config/nvim/init.vim
 RUN nvim -c 'PlugInstall' -c 'qa!'
 
 CMD ["zsh"]
