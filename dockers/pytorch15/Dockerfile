@@ -53,9 +53,9 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
            .. \
   && make -j 32 \
   && make install
-RUN ln -s \
-  /usr/local/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
-  /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
+#RUN ln -s \
+#  /usr/local/include/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
+#  /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
 RUN pip install scipy scikit-image pillow yacs cython matplotlib tqdm jupyter lxml shapely
 

@@ -91,19 +91,6 @@ RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 RUN sed -i -e "$ a alias vi='nvim'" ~/.zshrc
 RUN sed -i -e "$ a alias vim='nvim'" ~/.zshrc
 
-# --- PyTorch
 RUN pip3 install ninja pyyaml mkl mkl-include
-#RUN git clone --recursive https://github.com/pytorch/pytorch /root/home/pytorch
-#WORKDIR "/root/home/pytorch/"
-## if you are updating an existing checkout
-#RUN git submodule sync
-#RUN git submodule update --init --recursive
-#RUN python3 /root/home/pytorch/setup.py install
-##RUN python3 setup.py install
-#
-#RUN git clone https://github.com/pytorch/vision /root/home/vision
-#RUN python3 /root/home/vision/setup.py install
-#
-#RUN pip3 install -y tensorboard sklearn
 
 CMD ["zsh"]
