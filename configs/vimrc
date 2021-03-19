@@ -3,8 +3,6 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-scripts/Conque-Shell'
 Plug 'scrooloose/syntastic'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
@@ -48,7 +46,6 @@ syntax on
 set termguicolors
 colorscheme gruvbox
 set background=dark
-
 
 
 set encoding=utf-8
