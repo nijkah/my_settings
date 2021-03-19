@@ -19,7 +19,7 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/c
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 chsh -s `which zsh`
-cp configs/zshrc ~/.zshrc
+cp ../configs/zshrc ~/.zshrc
 
 $SUDOPREFIX apt install neovim -y
 
@@ -27,9 +27,9 @@ $SUDOPREFIX apt install neovim -y
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-cp configs/vimrc ~/.vimrc
+cp ../configs/vimrc ~/.vimrc
 mkdir -p ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
-cp configs/tmux.conf ~/.tmux.conf
+cp ../configs/tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
