@@ -69,7 +69,7 @@ RUN ln -s \
   /usr/local/python/cv2/python-${PYTHON_VERSION_NO_PATCH}/cv2.cpython-37m-x86_64-linux-gnu.so \
   /usr/local/lib/python${PYTHON_VERSION_NO_PATCH}/site-packages/cv2.so
 
-RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" \ 
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
  && sed -i "s/robbyrussell/ys/g" ~/.zshrc \
  && chsh -s /usr/bin/zsh 
 
