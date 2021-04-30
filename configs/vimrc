@@ -31,9 +31,6 @@ set ignorecase
 set relativenumber
 set cc=80
 
-set ai "Auto indent
-set si "Smart indent
-
 set hlsearch
 set laststatus=2  
 set ruler 
