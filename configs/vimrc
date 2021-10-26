@@ -10,6 +10,7 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -32,12 +33,21 @@ set relativenumber
 set cc=80
 
 set hlsearch
-set laststatus=2  
-set ruler 
+set laststatus=2
+set ruler
 set incsearch
 
 map <C-n> : NERDTreeToggle<CR>
 nmap <F8> : TagbarToggle<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 syntax on
 set termguicolors
