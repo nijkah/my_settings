@@ -9,5 +9,5 @@ chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 cp ../configs/zshrc ~/.zshrc
 cp ../configs/tmux.conf ~/.tmux.conf
 
-zsh
-#source ~/.zshrc
+chsh -s $(which zsh)
+source ~/.zshrc
