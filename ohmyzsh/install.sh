@@ -9,9 +9,9 @@ chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 cp ../configs/zshrc ~/.zshrc
 cp ../configs/tmux.conf ~/.tmux.conf
 
-zsh
-
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --all
+
+zsh
 
 #source ~/.zshrc
