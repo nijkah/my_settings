@@ -15,7 +15,8 @@ export LANG=en_US.UTF-8
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 # install omz plugins
-git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
+git clone https://github.com/z-shell/F-Sy-H ~/.oh-my-zsh/custom/plugins/f-sy-h
+source ~/.oh-my-zsh/custom/plugins/f-sy-h/F-Sy-H.plugin.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 chmod 755 "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 chsh -s `which zsh`
@@ -33,3 +34,4 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 cp ../configs/tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
+echo 'source ~/path/to/f-sy-h/F-Sy-H.plugin.zsh' >> ~/.zshrc
