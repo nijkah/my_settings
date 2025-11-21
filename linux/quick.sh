@@ -34,4 +34,4 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 cp ../configs/tmux.conf ~/.tmux.conf
 
 nvim -c 'PlugInstall' -c 'qa!'
-echo 'source ~/path/to/f-sy-h/F-Sy-H.plugin.zsh' >> ~/.zshrc
+echo 'source ~/.oh-my-zsh/custom/plugins/f-sy-h/F-Sy-H.plugin.zsh' >> ~/.zshrc
